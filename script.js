@@ -1,13 +1,25 @@
 const gifStages = [
-    "https://media.tenor.com/EBV7OT7ACfwAAAAj/u-u-qua-qua-u-quaa.gif",    // 0 normal
-    "https://media1.tenor.com/m/uDugCXK4vI4AAAAd/chiikawa-hachiware.gif",  // 1 confused
-    "https://media.tenor.com/f_rkpJbH1s8AAAAj/somsom1012.gif",             // 2 pleading
-    "https://media.tenor.com/OGY9zdREsVAAAAAj/somsom1012.gif",             // 3 sad
-    "https://media1.tenor.com/m/WGfra-Y_Ke0AAAAd/chiikawa-sad.gif",       // 4 sadder
-    "https://media.tenor.com/CivArbX7NzQAAAAj/somsom1012.gif",             // 5 devastated
-    "https://media.tenor.com/5_tv1HquZlcAAAAj/chiikawa.gif",               // 6 very devastated
-    "https://media1.tenor.com/m/uDugCXK4vI4AAAAC/chiikawa-hachiware.gif"  // 7 crying runaway
+    "https://media1.tenor.com/m/_rQc7PIEqwQAAAAd/cat-hello-cat-peek.gif",    // 0 normal
+    "https://media1.tenor.com/m/4EsDSXQlO5cAAAAd/cat-thinking.gif",  // 1 confused
+    "https://media1.tenor.com/m/t7_iTN0iYekAAAAd/sad-sad-cat.gif",             // 2 pleading
+    "https://media1.tenor.com/m/j5rPRPBwSOMAAAAd/cat-smacking-other-cat-cat.gif",             // 3 sad
+    "https://media1.tenor.com/m/sVIdqBeLUyMAAAAd/cat-cats.gif",       // 4 sadder
+    "https://media1.tenor.com/m/dhuQV_msfiUAAAAd/cat-gun.gif",             // 5 devastated
+    "https://media1.tenor.com/m/vFAKFA_tfdYAAAAd/meow.gif",               // 6 very devastated
+    "https://media1.tenor.com/m/N0RF2N2kDtgAAAAC/kitten-waiting-for-hug.gif"  // 7 crying runaway
 ]
+
+
+// const gifStages = [
+//     "https://media.tenor.com/EBV7OT7ACfwAAAAj/u-u-qua-qua-u-quaa.gif",    // 0 normal
+//     "https://media1.tenor.com/m/uDugCXK4vI4AAAAd/chiikawa-hachiware.gif",  // 1 confused
+//     "https://media.tenor.com/f_rkpJbH1s8AAAAj/somsom1012.gif",             // 2 pleading
+//     "https://media.tenor.com/OGY9zdREsVAAAAAj/somsom1012.gif",             // 3 sad
+//     "https://media1.tenor.com/m/WGfra-Y_Ke0AAAAd/chiikawa-sad.gif",       // 4 sadder
+//     "https://media.tenor.com/CivArbX7NzQAAAAj/somsom1012.gif",             // 5 devastated
+//     "https://media.tenor.com/5_tv1HquZlcAAAAj/chiikawa.gif",               // 6 very devastated
+//     "https://media1.tenor.com/m/uDugCXK4vI4AAAAC/chiikawa-hachiware.gif"  // 7 crying runaway
+// ]
 
 const noMessages = [
     "No",
