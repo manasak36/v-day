@@ -48,7 +48,7 @@ music.play().then(() => {
     // Fallback: unmute on first interaction
     document.addEventListener('click', () => {
         music.muted = false
-        music.play().catch(() => {})
+        music.play().catch(() => { })
     }, { once: true })
 })
 
@@ -129,14 +129,42 @@ function enableRunaway() {
 }
 
 function runAway() {
+    // Prevent layout shift: if button is not yet fixed, create a placeholder
+    if (noBtn.style.position !== 'fixed') {
+        const placeholder = document.createElement('div');
+        placeholder.style.width = getComputedStyle(noBtn).width;
+        placeholder.style.height = getComputedStyle(noBtn).height;
+        // Insert placeholder before moving the button
+        noBtn.parentNode.insertBefore(placeholder, noBtn);
+    }
+
     const margin = 20
     const btnW = noBtn.offsetWidth
     const btnH = noBtn.offsetHeight
     const maxX = window.innerWidth - btnW - margin
     const maxY = window.innerHeight - btnH - margin
 
-    const randomX = Math.random() * maxX + margin / 2
-    const randomY = Math.random() * maxY + margin / 2
+    const yesRect = yesBtn.getBoundingClientRect()
+
+    let randomX, randomY
+    let overlap = false
+    let attempts = 0
+
+    do {
+        randomX = Math.random() * maxX + margin / 2
+        randomY = Math.random() * maxY + margin / 2
+
+        // check collision with Yes button
+        if (randomX < yesRect.right &&
+            randomX + btnW > yesRect.left &&
+            randomY < yesRect.bottom &&
+            randomY + btnH > yesRect.top) {
+            overlap = true
+        } else {
+            overlap = false
+        }
+        attempts++
+    } while (overlap && attempts < 15) // Try 15 times to find a safe spot
 
     noBtn.style.position = 'fixed'
     noBtn.style.left = `${randomX}px`
