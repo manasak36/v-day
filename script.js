@@ -55,14 +55,22 @@ const music = document.getElementById('bg-music')
 music.muted = true
 music.volume = 0.3
 music.play().then(() => {
+    // If autoplay works (desktop), unmute after a short delay or interaction
     music.muted = false
-}).catch(() => {
-    // Fallback: unmute on first interaction
-    document.addEventListener('click', () => {
-        music.muted = false
-        music.play().catch(() => { })
-    }, { once: true })
+}).catch((error) => {
+    console.log("Autoplay prevented:", error)
 })
+
+// Fix for mobile: Unmute and play on first interaction (click or touch)
+function enableAudio() {
+    music.muted = false
+    music.play().catch((e) => console.log("Play failed:", e))
+    document.removeEventListener('click', enableAudio)
+    document.removeEventListener('touchstart', enableAudio)
+}
+
+document.addEventListener('click', enableAudio)
+document.addEventListener('touchstart', enableAudio)
 
 function toggleMusic() {
     if (musicPlaying) {

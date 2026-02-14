@@ -6,9 +6,22 @@ window.addEventListener('load', () => {
     // Autoplay music (works since user clicked Yes to get here)
     const music = document.getElementById('bg-music')
     music.volume = 0.3
-    music.play().catch(() => {})
-    musicPlaying = true
-    document.getElementById('music-toggle').textContent = '🔊'
+
+    // Attempt play
+    const playMusic = () => {
+        music.play().then(() => {
+            musicPlaying = true
+            document.getElementById('music-toggle').textContent = '🔊'
+        }).catch((e) => {
+            console.log("Autoplay blocked, waiting for interaction", e)
+        })
+    }
+
+    playMusic()
+
+    // Fallback for mobile
+    document.addEventListener('click', playMusic, { once: true })
+    document.addEventListener('touchstart', playMusic, { once: true })
 })
 
 function launchConfetti() {
